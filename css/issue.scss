@@ -1,0 +1,211 @@
+/* Global Settings */
+
+body{
+  background-color: #333333;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* Nav Settings */
+
+@import "nav";
+@import "menu";
+
+nav{
+  background-color: white;
+}
+
+#nav-right{
+
+  a{
+    color: #333333;
+  }
+}
+
+/* Container Settings */
+
+.container{
+  margin-top: 95px;
+  margin-bottom: 165px;
+  width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#issue-title{
+  color: white;
+}
+
+#green-bar{
+  margin-top: 24px;
+  width: 100%;
+  height: 5px;
+  background-color: #75da7a;
+}
+
+.issues{
+  margin-top: 65px;
+  
+  ul{
+    margin-bottom: 100px;
+    
+    li{
+      display: flex;
+      margin-bottom: 40px;
+      background-color: white;
+
+      a{
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  
+  img.loading{
+    //display: block;
+    width: 50px;
+    margin: auto;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 1000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 1000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .end{
+    color: #9b9b9b;
+  }
+}
+
+.issue-image{
+  width: 320px;
+  background-color: lightgray;
+  background-size: cover;
+  background-position: center;
+}
+
+.issue-content{
+  width: 540px;
+  //height: 240px;
+  padding: 52px 50px;
+  display: inline;
+  
+  .small{
+    font-size: 0.87em;
+    color: #9c9c9c;
+    margin: 10px 0;
+  }
+  
+  .context{
+    line-height: 2em;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container{
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px){
+
+  .container{
+    width: 100%;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .issue-image{
+    height: 200px;
+  }
+
+  .issues {
+    width: 100%;
+    ul{
+      li{
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+/* Footer Settings */
+@import "footer";
+
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from { transform:rotate(0deg); }
+    to { transform:rotate(360deg); }
+}
+
+@media screen and (max-width: 1024px) {
+  .col-md-1{width: 8.332%;}
+  .col-md-2{width: 16.662%;}
+  .col-md-3{width: 25%;}
+  .col-md-4{width: 33.332%;}
+  .col-md-5{width: 41.662%;}
+  .col-md-6{width: 50%;}
+  .col-md-7{width: 58.331%;}
+  .col-md-8{width: 66.662%;}
+  .col-md-9{width: 75%;}
+  .col-md-10{width: 83.332%;}
+  .col-md-11{width: 91.662%;}
+  .col-md-12{width: 100%;}
+}
+@media screen and (max-width: 768px){
+  .col-sm-1{width: 8.332%;}
+  .col-sm-2{width: 16.662%;}
+  .col-sm-3{width: 25%;}
+  .col-sm-4{width: 33.332%;}
+  .col-sm-5{width: 41.662%;}
+  .col-sm-6{width: 50%;}
+  .col-sm-7{width: 58.331%;}
+  .col-sm-8{width: 66.662%;}
+  .col-sm-9{width: 75%;}
+  .col-sm-10{width: 83.332%;}
+  .col-sm-11{width: 91.662%;}
+  .col-sm-12{width: 100%;}
+}
+
+@media screen and (max-width: 480px){
+  .col-xs-1{width: 8.332%;}
+  .col-xs-2{width: 16.662%;}
+  .col-xs-3{width: 25%;}
+  .col-xs-4{width: 33.332%;}
+  .col-xs-5{width: 41.662%;}
+  .col-xs-6{width: 50%;}
+  .col-xs-7{width: 58.331%;}
+  .col-xs-8{width: 66.662%;}
+  .col-xs-9{width: 75%;}
+  .col-xs-10{width: 83.332%;}
+  .col-xs-11{width: 91.662%;}
+  .col-xs-12{width: 100%;}
+}
