@@ -1,10 +1,21 @@
 $(document).ready(function(){
-  
-  $('nav i').on('click', function(){
-    $('.menu').animate({left: "0"},200);
+  $('.menu-icon').click(function(){
+    openMenu();
   });
   
-  $('.close i').on('click', function(){
-    $('.menu').animate({left: "-355px"},200);
+  $('html, .close').click(function(){
+    closeMenu();
+  });
+  
+  $('.menu, .menu-icon').click(function(event){
+    event.stopPropagation();
   });
 });
+
+function openMenu(){
+  $('.menu').animate({left: "0"},200);
+}
+
+function closeMenu(){
+  $('.menu').animate({left: "-355px"},200);
+}

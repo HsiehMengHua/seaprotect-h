@@ -13,9 +13,10 @@ if($isLoggin){
 
 <nav>
   <div class="nav-container">
-    <div id="nav-left">
-      <div><i class="material-icons">menu</i></div>
+    <div class="nav-left">
+      <div class="menu-icon"><i class="material-icons">menu</i></div>
+      <div class="logo"><a href="../../index.php"><img src="../../img/logo.png" alt=""></a></div>
     </div>
-    <div id="nav-right"><?php echo $text_left ?> / <?php echo $text_right ?></div>
+    <div class="nav-right"><?php echo $text_left ?> / <?php echo $text_right ?></div>
   </div>
 </nav>

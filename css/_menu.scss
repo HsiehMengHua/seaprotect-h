@@ -15,16 +15,18 @@ body{
   left: -355px;
   z-index: 99;
   
-  .close{
-    height: 65px;
-    text-align: right;
+  .close-wrapper{
     margin-bottom: 30px;
     margin-right: 30px;
-    
-    i{
-      font-size: 2em;
-      line-height: 65px;
-      cursor: pointer;
+  
+    .close{
+      float: right;
+      
+      i{
+        font-size: 2em;
+        line-height: 65px;
+        cursor: pointer;
+      }
     }
   }
   

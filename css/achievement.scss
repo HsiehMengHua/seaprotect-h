@@ -10,41 +10,37 @@ a{
 
 /* Nav Settings */
 @import "nav";
-nav{
-  background-color: white;
-}
-
-
-#nav-right{
-  width: 85px;
-  display: flex;
-  justify-content: space-between;
-
-  a{
-    color: #333333;
-    font-size: 16px;
-  }
-}
-
 @import "menu";
 
 /* Container Settings */
 
-.container{
+.container {
   margin: 0 auto;
   padding-top: 95px;
   padding-bottom: 65px;
-  width: 80%;
+  max-width: 1155px;
   min-height: calc(100vh - 205px);
+  
+  @media screen and (max-width: 1366px) {
+    max-width: 860px;
+  }
+  
+  @media screen and (max-width: 920px) {
+    max-width: 565px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    max-width: 270px;
+  }
 }
 
 
 
-#issue-title{
+#issue-title {
   color: #e0e0e0;
 }
 
-#green-bar{
+#green-bar {
   margin-top: 24px;
   width: 100%;
   height: 5px;
@@ -54,66 +50,38 @@ nav{
 /* date */
 .year-month {
   margin-top: 65px;
-  color:rgb(111, 129, 125);
+  color:#6f817d;
 }
 
+/* Grid */
+.grid {
+  margin-left: -25px;
+  
+  .grid-item {
+    width: 270px;
+    margin-top: 30px;
+    margin-left: 25px;
+    cursor: pointer;
 
-/*waterfall*/
-#outbox{
-  column-count: 3;
-    column-gap: 28px;
-    width:860px;
-	margin:0 auto;
-  margin-top: -3px;
-}
+    .ach-image {
+      height: 185px;
+      background-color: #b5b5b5;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    }
 
+    .ach-info {
+      background-color: #fff;
+      padding: 15px 25px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
 
-.content_box{
-  margin-top: 28px;
-  margin-right: 25px;
-  width:268px;
-  height: 240px;
-  display:inline-block;
-  overflow:hidden;
-  background-color: rgb(181, 181, 181);
-  background-size: cover;
-  background-position: center;
+      .ach-date {
+        color: #f6a42f;
+      }
+    }
+  }
 }
-.content_boxWhite{
-  display: block;
-  width:268px;
-  height: 65px;
-  background-color: white;
-  margin-top: 175px;
-}
-.grid{
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;}
-.grid-item
-{
-  width:268px;
-  height: 240px;
-  border-radius:4px;
-  box-sizing: border-box;
-}
-.text{
-  width:180px;
-  color: #333333;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 17px 17px;
-  margin-right: 0px
-}
-.text2{
-  width:268px;
-  color: rgb(254, 177, 67);
-  font-size: 16px;
-  font-weight: bold;
-  padding-left: 150px;
-
-}
-
 
 /* Footer Settings */
 @import "footer";

@@ -1,6 +1,17 @@
 <?php
 
 session_start();
+include("pages/connectDB.php");
+
+$isLoggin = isset($_SESSION["member_id"]);
+if($isLoggin){
+  $text_left = '<a href="pages/member/myAccount.php">我的帳號</a>';
+  $text_right = '<a href="pages/member/logout.php">登出</a>';
+  $addClass = 'hide';
+}else{
+  $text_left = '<a href="pages/member/register.php">註冊</a>';
+  $text_right = '<a href="pages/member/login.php">登入</a>';;
+}
 
 ?>
 
@@ -8,48 +19,39 @@ session_start();
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>海洋保育網</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <?php include("pages/head.php"); ?>
   <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
-
-  <div class="background"></div>
-
   <nav>
     <div class="nav-container">
       <div id="nav-left">
         <div><i class="material-icons">menu</i></div>
       </div>
-      <div id="nav-right">
-        <?php echo (isset($_SESSION["member_id"]))?'<a href="">我的帳號</a>':'<a href="pages/member/register.php">註冊</a>'; ?>
-         /
-        <?php echo (isset($_SESSION["member_id"]))?'<a href="pages/member/logout.php">登出</a>':'<a href="pages/member/login.php">登入</a>'; ?>
-      </div>
+      <div id="nav-right"><?php echo $text_left ?> / <?php echo $text_right ?></div>
     </div>
   </nav>
-
+  
   <div class="menu">
     <div class="close"><i class="material-icons">close</i></div>
     <ul>
       <li><a href="pages/activities/activities.php">瀏覽所有活動</a></li>
       <li><a href="pages/activities/launch.php">我要發起活動</a></li>
-      <li><a href="pages/achievement/achievement.php">成就達成</a></li>
+      <li><a href="pages/achievement/achievement.php">歷年成果</a></li>
       <li><a href="pages/achievement/post.php">我要分享成果</a></li>
       <li><a href="pages/issue/issue.php">相關議題報導</a></li>
-      <li class="<?php echo (isset($_SESSION[member_id]))?'':'hide'; ?>"><a href="pages/member/myAccount.php">會員中心</a></li>
-      <li class="<?php echo (isset($_SESSION[member_id]))?'':'hide'; ?>"><a href="pages/member/logout.php">登出</a></li>
+      <li class="<?php echo $addClass; ?>"><a href="pages/member/myAccount.php">會員中心</a></li>
+      <li class="<?php echo $addClass; ?>"><a href="pages/member/logout.php">登出</a></li>
     </ul>
   </div>
+  
+  <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+  <div class="background"></div>
 
   <div class="story-1">
-    <div>
-      <p>聽，海哭的聲音</p>
-    </div>
+    <img src="img/hompage_1.jpg" alt="" class="bg-image">
+    <img src="img/homepage_copy.png" alt="" class="copy">
   </div>
 
   <div class="story-2">
@@ -97,19 +99,19 @@ session_start();
 
   <div class="story-7">
     <div>
-      <p>現在，就還給他們一個乾淨的海洋！</p>
+      <p>還給他們一個乾淨的海洋</p>
     </div>
     <div id="letsGo">
-      <p>↓↓↓ 開始行動 ↓↓↓</p>
+      <p>現在就開始行動！</p>
     </div>
   </div>
 
   <footer>
     <ul>
-      <li><a href="">瀏覽活動</a></li>
-      <li><a href="">發起活動</a></li>
-      <li><a href="">相關議題報導</a></li>
-      <li><a href="">成就達成</a></li>
+      <li><a href="pages/activities/activities.php">瀏覽活動</a></li>
+      <li><a href="pages/activities/launch.php">發起活動</a></li>
+      <li><a href="pages/achievement/achievement.php">歷年成果</a></li>
+      <li><a href="pages/issue/issue.php">相關議題報導</a></li>
     </ul>
     <p>Copyright &copy; 2016</p>
   </footer>
@@ -117,5 +119,6 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/sitemapGenerator.js"></script>
+  <script src="js/gotoTop.js"></script>
 </body>
 </html>

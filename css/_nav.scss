@@ -3,13 +3,45 @@ nav{
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: white;
+  
+  &.dark {
+    color: white;
+    background-color: #313131;
+    padding: 17px 50px;
+  }
+  
   .nav-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     
-    i{
+    i {
       cursor: pointer;
+    }
+    
+    .nav-left {
+      .menu-icon, .logo {
+        display: inline-block;
+      }
+      
+      .menu-icon {
+        margin-right: 60px;
+      }
+      
+      .logo img {
+        height: 25px;
+      }
+    }
+    
+    .nav-right{
+      width: 120px;
+      display: flex;
+      justify-content: space-between;
+
+      a{
+        font-size: 16px;
+      }
     }
   }
 }
@@ -30,15 +62,5 @@ nav{
   .nav-container{
     width: 100%;
     padding: 0 10px;
-  }
-}
-
-#nav-right{
-  width: 120px;
-  display: flex;
-  justify-content: space-between;
-
-  a{
-    font-size: 16px;
   }
 }
