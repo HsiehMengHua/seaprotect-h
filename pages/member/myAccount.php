@@ -1,6 +1,13 @@
 <?php
 
 session_start();
+include("../connectDB.php");
+$sql = 'SELECT * FROM `member` WHERE `id` = '.$_SESSION['member_id'];
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+$member_id = $row['id'];
+$userName = $row['name'];
+$phone = $row['phone'];
 
 ?>
 
@@ -18,82 +25,93 @@ session_start();
   include("../menu.php");
   ?>
 
-  <div class="big-pic"></div>
+  <div class="profile-banner">
+    <div class="profile-wrapper">
+      <div class="profile-photo">
+        <img src="" alt="" />
+      </div>
+      <div class="profile-welcome">
+        <p>嗨，<span class="username"><?php echo $userName; ?></span>!</p>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
-    <ul class="block-container">
-      <li class="myAccountBlock">
-        <div class="block-icon">
-          <i class="material-icons">face</i>
-          <div class="block-data">
-            <label>請輸入舊密碼：
-              <input type="text" name="location">
-            </label>
-            <label>輸入新密碼：
-              <input type="text" name="location">
-            </label>
-            <label>輸入新密碼(第二次)：
-              <input type="text" name="location">
-            </label>
+    <div class="grid clear">
+      <div class="grid-item update-account">
+        <div class="content-wrapper">
+          <div class="icon-wrapper"><i class="material-icons">face</i></div>
+          <h3>修改會員資料</h3>
+        </div>
+      </div>
+      <div class="update-account-form">
+        <div class="close-btn"><i class="material-icons">close</i></div>
+        <form action="updateProfile.php" method="post">
+          <div class="form-item">
+            <label>使用者名稱<input type="text" name="userName" value="<?php echo $userName; ?>"></label>
+          </div>  
+          <div class="form-item">
+            <label>聯絡電話<input type="text" name="phone" value="<?php echo $phone; ?>"></label>
           </div>
+          <span class="open-change-password"><i class="material-icons">keyboard_arrow_down</i>修改密碼</span>
+          <section class="change-password">
+            <div class="form-item orig-password">
+              <label>輸入原密碼<span id="origPassErr" class="err"></span>
+                <input id="orig-password-input" type="password" data-status="0">
+              </label>
+            </div>
+            <div class="form-item">
+              <label>新密碼<input type="password" id="password"></label>
+            </div>
+            <div class="form-item">
+              <label>確認新密碼<span id="passErr" class="err"></span>
+                <input type="password" name="password" id="confirmPassword" data-status="0">
+              </label>
+            </div>
+          </section>
+          <div class="form-item clear">
+            <button type="submit" class="submit">送出</button>
+            <button type="button" class="cancel">取消</button>
+          </div>
+        </form>
+      </div>
+      <div class="grid-item not-open">
+        <div class="content-wrapper">
+          <div class="icon-wrapper"><i class="material-icons">event</i></div>
+          <h3>我的活動</h3>
         </div>
-        <div class="block-title">
-          <button class="send-data" type="button" name="button">確認</button>
-          <p>修改會員資料</p>
+      </div>
+      <div class="grid-item not-open">
+        <div class="content-wrapper">
+          <div class="icon-wrapper"><i class="material-icons">book</i></div>
+          <h3>我的文章</h3>
         </div>
-      </li>
-      <li class="myAccountBlock">
-        <div class="block-icon">
-          <i class="material-icons">event</i>
-          <div class="block-data">Loading...</div>
+      </div>
+      <div class="grid-item not-open">
+        <div class="content-wrapper">
+          <div class="icon-wrapper"><i class="material-icons">list</i></div>
+          <h3>口袋清單</h3>
         </div>
-        <div class="block-title">
-          <p>我的活動</p>
+      </div>
+      <div class="grid-item not-open">
+        <div class="content-wrapper">
+          <div class="icon-wrapper"><i class="material-icons">email</i></div>
+          <h3>重發驗證信</h3>
         </div>
-      </li>
-      <li class="myAccountBlock">
-        <div class="block-icon">
-          <i class="material-icons">book</i>
-          <div class="block-data">建置中...</div>
+      </div>
+      <div class="grid-item not-open">
+        <div class="content-wrapper">
+          <div class="icon-wrapper"><i class="material-icons">star</i></div>
+          <h3>我的積分</h3>
         </div>
-        <div class="block-title">
-          <p>我的文章</p>
-        </div>
-      </li>
-      <li class="myAccountBlock">
-        <div class="block-icon">
-          <i class="material-icons">list</i>
-          <div class="block-data">建置中...</div>
-        </div>
-        <div class="block-title">
-          <p>口袋清單</p>
-        </div>
-      </li>
-      <li class="myAccountBlock">
-        <div class="block-icon">
-          <i class="material-icons">email</i>
-          <div class="block-data">建置中...</div>
-        </div>
-        <div class="block-title">
-          <p>重發驗證信</p>
-        </div>
-      </li>
-      <li class="myAccountBlock">
-        <div class="block-icon">
-          <i class="material-icons">star</i>
-          <div class="block-data">建置中...</div>
-        </div>
-        <div class="block-title">
-          <p>我的積分</p>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 
   <?php include("../footer.php"); ?>
 
-  <script src="../../js/jquery-3.0.0.min.js"></script>
+  <script src="../../js/md5.min.js"></script>
+  <script src="../../js/form.js"></script>
   <script src="../../js/myAccount.js"></script>
 </body>
-
 </html>

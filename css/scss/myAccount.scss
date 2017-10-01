@@ -1,0 +1,140 @@
+@import "nav";
+@import "menu";
+@import "footer";
+@import 'form';
+
+body{
+  background-color: #313131;
+}
+
+nav{
+  background-color: white;
+}
+
+.profile-banner{
+  background-size: cover;
+  background-position: 50% 30%;
+  background-image: url('../../img/account_bg.jpg');
+  width: 100%;
+  height: 200px;
+  display: table;
+  padding: 30px 140px;
+  
+  .profile-wrapper {
+    display: table-cell;
+    vertical-align: bottom;
+    
+    .profile-photo {
+      display: table-cell;
+      background-color: #dadada;
+      background-image: url('../../img/profile-photo.png');
+      background-size: contain;
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    
+    .profile-welcome {
+      display: table-cell;
+      vertical-align: bottom;
+      padding-left: 30px;
+      color: #fff;
+      font-size: 36px;
+      font-weight: bold;
+    }
+  }
+}
+
+/* Container Settings */
+.container{
+  margin-top: 50px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Grid */
+.grid {
+  margin-left: -25px;
+  margin-bottom: 80px;
+  
+  .grid-item {
+    width: 250px;
+    height: 250px;
+    border-radius: 4px;
+    background-color: #fff;
+    margin-top: 30px;
+    margin-left: 25px;
+    display: table;
+    cursor: pointer;
+    
+    &.not-open {
+      color: #b1b1b1;
+      cursor: not-allowed;
+    }
+    
+    .content-wrapper {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      
+      .icon-wrapper i {
+        font-size: 42px;
+      }
+    }
+  }
+  
+  .update-account-form {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 60px 90px;
+    width: 760px;
+    -webkit-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.2);
+       -moz-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.2);
+            box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.2);
+    
+    &.close {
+      width: 0;
+      -webkit-transition: width 2s; /* Safari */
+              transition: width 2s;
+    }
+    
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      
+      .material-icons {
+        color: #a1a1a1;
+        font-size: 42px;
+      }
+    }
+  }
+  
+  .open-change-password {
+    color: #929292;
+    font-size: 14px;
+    cursor: pointer;
+    
+    .material-icons {
+      vertical-align: middle;
+      -webkit-transition: transform 0.3s; /* Safari */
+              transition: transform 0.3s;
+    }
+    
+    &.open .material-icons {
+      -ms-transform: rotate(180deg); /* IE 9 */
+      -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+      transform: rotate(180deg);
+    }
+  }
+  
+  .change-password {
+    margin-top: 30px;
+    display: none;
+  }
+}

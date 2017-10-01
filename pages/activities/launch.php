@@ -23,11 +23,11 @@ if(!isset($_SESSION["member_id"]))
     <div class="form pull-right">
       <form action="launching.php" method="post">
         <ul>
-          <li><label>哪個海灘？</label><br><input type="text" name="location"></li>
-          <li><label>日期</label><br><input type="text" name="date" id="date"></li>
-          <li><label>時間 </label><br><input type="text" name="time" id="time"></li>
-          <li><label>要提醒大家什麼？ </label><br><textarea name="description" cols="30" rows="10"></textarea></li>
-          <li class="clear">
+          <li class="form-item"><label>哪個海灘？</label><br><input type="text" name="location"></li>
+          <li class="form-item"><label>日期</label><br><input type="text" name="date" id="date"></li>
+          <li class="form-item"><label>時間 </label><br><input type="text" name="time" id="time"></li>
+          <li class="form-item"><label>要提醒大家什麼？ </label><br><textarea name="description" cols="30" rows="10"></textarea></li>
+          <li class="form-item clear">
             <button type="submit" class="submit">送出</button>
             <button onclick="history.back();" class="cancel">取消</button>
           </li>
@@ -36,38 +36,23 @@ if(!isset($_SESSION["member_id"]))
     </div>
   </main>
 
-  <script src="http://momentjs.com/downloads/moment-with-locales.min.js"></script> <!-- 有 .min.js 在local資料夾 -->
+  <script src="../../js/moment.min.js"></script>
+  <script src="../../js/bootstrap-material-datetimepicker.js"></script>
+  <script src="../../js/form.js"></script>
   <script>
 	  $(function() {
-        $('#date').bootstrapMaterialDatePicker({ weekStart: 0, time: false, minDate: new Date() });
-        $('#time').bootstrapMaterialDatePicker({ date: false, format: 'HH:mm', switchOnClick: true });
+        $('#date').bootstrapMaterialDatePicker({ 
+          weekStart: 0, 
+          time: false, 
+          minDate: new Date() 
+        });
+        
+        $('#time').bootstrapMaterialDatePicker({ 
+          date: false, 
+          format: 'HH:mm', 
+          switchOnClick: true 
+        });
 	  });
-  </script>
-  <script>
-    $(function() {
-      $('form input').on("focus",function(){
-        $(this).parent().css("color","#55bbb5");
-        $(this).css("borderBottomColor","#55bbb5");
-      });
-      $('form input').on("blur",function(){
-        $(this).parent().css("color","#313b4f");
-        $(this).css("borderBottomColor","#313b4f");
-      });
-
-      $('#confirmPassword').keyup(function(){
-        if($(this).val() == $('#password').val()){
-          $(this).css("borderBottomColor","#75da7a");
-          $(this).parent().css("color","#75da7a");
-          $("#passErr").html("");
-          $("button.submit").attr("disabled",false);
-        }else{
-          $(this).css("borderBottomColor","#e53a3a");
-          $(this).parent().css("color","#e53a3a");
-          $("#passErr").html("　輸入密碼不一致");
-          $("button.submit").attr("disabled",true);
-        }
-      });
-    });
   </script>
 </body>
 </html>

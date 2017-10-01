@@ -25,10 +25,10 @@ if(!isset($_SESSION["member_id"]))
     <div class="form pull-right">
       <form action="posting.php" method="post">
         <ul>
-          <li><label>哪個海灘？<input type="text" name="location"></label></li>
-          <li><label>哪一天？<input type="text" name="date" id="date"></label></li>
-          <li class="editor"><br><textarea name="editor"></textarea><script>CKEDITOR.replace( 'editor' );</script></li>
-          <li class="clear">
+          <li class="form-item"><label>哪個海灘？<input type="text" name="location"></label></li>
+          <li class="form-item"><label>哪一天？<input type="text" name="date" id="date"></label></li>
+          <li class="form-item editor"><br><textarea name="editor"></textarea><script>CKEDITOR.replace( 'editor' );</script></li>
+          <li class="form-item clear">
             <button type="submit" class="submit">送出</button>
             <button onclick="history.back();" class="cancel">取消</button>
           </li>

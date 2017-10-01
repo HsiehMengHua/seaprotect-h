@@ -63,11 +63,13 @@ function input($data) {
     <div class="form pull-right">
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <ul>
-          <li><label>Email
-            <input type="email" name="email" value="<?php echo (isset($_POST["email"]))?$_POST["email"]:""; ?>">
-          </label></li>
-          <li><label>密碼<input type="password" name="password"></label></li>
-          <li class="clear">
+          <li class="form-item">
+            <label>Email
+              <input type="email" name="email" value="<?php echo (isset($_POST["email"]))?$_POST["email"]:""; ?>">
+            </label>
+          </li>
+          <li class="form-item"><label>密碼<input type="password" name="password"></label></li>
+          <li class="form-item clear">
             <button type="submit" class="submit">送出</button>
             <button onclick="history.back();" class="cancel">取消</button>
             <span id="err"><?php echo $err."　"; ?></span>
@@ -77,5 +79,6 @@ function input($data) {
     </div>
   </main>
   
+  <script src="../../js/form.js"></script>
 </body>
 </html>

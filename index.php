@@ -7,10 +7,10 @@ $isLoggin = isset($_SESSION["member_id"]);
 if($isLoggin){
   $text_left = '<a href="pages/member/myAccount.php">我的帳號</a>';
   $text_right = '<a href="pages/member/logout.php">登出</a>';
-  $addClass = 'hide';
 }else{
   $text_left = '<a href="pages/member/register.php">註冊</a>';
   $text_right = '<a href="pages/member/login.php">登入</a>';;
+  $addClass = 'hide';
 }
 
 ?>
@@ -26,15 +26,18 @@ if($isLoggin){
 <body>
   <nav>
     <div class="nav-container">
-      <div id="nav-left">
-        <div><i class="material-icons">menu</i></div>
+      <div class="nav-left">
+        <div class="menu-icon"><i class="material-icons">menu</i></div>
+        <div class="logo"><a href="index.php"><img src="img/logo.png" alt=""></a></div>
       </div>
-      <div id="nav-right"><?php echo $text_left ?> / <?php echo $text_right ?></div>
+      <div class="nav-right"><?php echo $text_left ?> / <?php echo $text_right ?></div>
     </div>
   </nav>
-  
+
   <div class="menu">
-    <div class="close"><i class="material-icons">close</i></div>
+    <div class="close-wrapper clear">
+      <div class="close"><i class="material-icons">close</i></div>
+    </div>
     <ul>
       <li><a href="pages/activities/activities.php">瀏覽所有活動</a></li>
       <li><a href="pages/activities/launch.php">我要發起活動</a></li>
@@ -116,7 +119,6 @@ if($isLoggin){
     <p>Copyright &copy; 2016</p>
   </footer>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="js/menu.js"></script>
   <script src="js/sitemapGenerator.js"></script>
   <script src="js/gotoTop.js"></script>

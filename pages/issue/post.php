@@ -27,11 +27,11 @@ if(!isset($_SESSION["member_id"]))
     <div class="form pull-right">
       <form action="posting.php" method="post" enctype="multipart/form-data">
         <ul>
-          <li><label>報導標題</label><br><input type="text" name="title"></li>
-          <li><label>報導來源</label><br><input type="text" name="source"></li>
-          <!--<li><label>上傳一張主圖</label><input type="file" name="imageUpload"></li>-->
-          <li class="editor"><br><textarea name="editor"></textarea><script>CKEDITOR.replace( 'editor' );</script></li>
-          <li class="clear">
+          <li class="form-item"><label>報導標題</label><br><input type="text" name="title"></li>
+          <li class="form-item"><label>報導來源</label><br><input type="text" name="source"></li>
+          <!--<li class="form-item"><label>上傳一張主圖</label><input type="file" name="imageUpload"></li>-->
+          <li class="form-item editor"><br><textarea name="editor"></textarea><script>CKEDITOR.replace( 'editor' );</script></li>
+          <li class="form-item clear">
             <button type="submit" class="submit">送出</button>
             <button onclick="history.back();" class="cancel">取消</button>
           </li>
@@ -40,17 +40,6 @@ if(!isset($_SESSION["member_id"]))
     </div>
   </main>
 
-  <script>
-    $(function() {
-      $('form input').on("focus",function(){
-        $(this).parent().css("color","#55bbb5");
-        $(this).css("borderBottomColor","#55bbb5");
-      });
-      $('form input').on("blur",function(){
-        $(this).parent().css("color","#313b4f");
-        $(this).css("borderBottomColor","#313b4f");
-      });
-    });
-  </script>
+  <script src="../../js/form.js"></script>
 </body>
 </html>

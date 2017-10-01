@@ -1,9 +1,24 @@
 $(document).ready(function(){
+  $('.close-btn, button.cancel').click(function(){
+    $('.update-account-form').animate({opacity: "0"}, 300, function(){
+      $(this).hide();
+    });
+  });
 
-  $('.block-container li').on('click', function(){
-    $(this).find("i").css({"display": "none"});
-    $(this).find(".block-data").css({"display": "flex"});
-    $(this).find(".block-title p").css({"display": "none"});
-    $(this).find(".send-data").css({"display": "flex"});
+  $('.update-account').click(function(){
+    $('.update-account-form').show().animate({opacity: "1"}, 300);
+  });
+
+  $('.open-change-password').click(function(){
+    if($(this).hasClass("open")){
+      $(this).removeClass("open");
+      $('.change-password').slideUp();
+      $("button.submit").attr("disabled", false);
+      $('.change-password input').val('');
+    }else{
+      $(this).addClass("open");
+      $('.change-password').slideDown();
+      $("button.submit").attr("disabled", true);
+    }
   });
 });
