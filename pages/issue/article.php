@@ -76,6 +76,7 @@ if($result_next->num_rows){
 
 <body>
   <?php
+  include("../gotoTop.php");
   include("../nav.php");
   include("../menu.php");
   ?>
@@ -138,14 +139,6 @@ if($result_next->num_rows){
   
   <?php include("../footer.php"); ?>
   
-  <script>
-      var animaion = setInterval(update, 5);
-      function update(){
-        var y = document.querySelector("body").scrollTop-120;
-        if(y>0){
-          document.querySelector(".sidebar").style.top = y.toString()+"px";
-        }
-      }
-  </script>
+  <script src="../../js/issue.js"></script>
 </body>
 </html>

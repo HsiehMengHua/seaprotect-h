@@ -18,6 +18,7 @@ $x = 0;
 <body>
  
   <?php
+  include("../gotoTop.php");
   include("../nav.php");
   include("../menu.php");
   ?>
@@ -26,7 +27,7 @@ $x = 0;
     <div class="jumbotron"><h1>「用行動改變世界，為海洋保護盡一份心。」</h1></div>
     <h1>下一場活動，<br>我來號召！</h1>
     <section>
-      <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+      
 
       <div class="timeline">
         <div class="line"></div>
@@ -40,18 +41,6 @@ $x = 0;
               </a>
             </div>
           </div>
-          <!--
-          <div class="node n1 right clear">
-            <div class="dot-wrapper"><div class="dot"></div></div>
-            <div class="dialog-box">
-              <div class="content">
-                <h3>新北貢寮龍門沙灘</h3>
-                <p>日期：7/16</p>
-                <p>時間：16:30-17:30</p>
-              </div>
-            </div>
-          </div>
-          -->
         </div>
       </div>
     </section>
@@ -59,39 +48,7 @@ $x = 0;
 
   <?php include("../footer.php"); ?>
   
-  <script>
-    var n = 0;
-    $(window).scroll(function() {
-      if($(window).scrollTop() + $(window).height() > $(document).height() - 350) {
-        loadPage();
-      }
-    });
-
-    function loadPage(){
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if(xhttp.readyState == 4 && xhttp.status == 200) {
-          $(".middle").append(xhttp.responseText);
-        }
-      };
-      //console.log(n);
-      xhttp.open("GET","load.php?o="+n,true);
-      xhttp.send();
-      n++;
-    }
-
-    function join(id){
-      //alert(id);
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if(xhttp.readyState == 4 && xhttp.status == 200) {
-          alert(xhttp.responseText);
-        }
-      };
-      xhttp.open("GET","join.php?id="+id,true);
-      xhttp.send();
-    }
-  </script>
-  <script src="../../js/gotoTop.js"></script>
+  <script src="../../js/activities.js"></script>
+  
 </body>
 </html>

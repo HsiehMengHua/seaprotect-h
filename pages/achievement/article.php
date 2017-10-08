@@ -70,16 +70,12 @@ if($result_next->num_rows){
   <title><?php echo $location."，".$act_date; ?></title>
   <?php include("../head.php"); ?>
   <link rel="stylesheet" href="../../css/article.css" />
-  <style>
-    .date{
-      float: right;
-    }
-  </style>
 </head>
 
 <body>
 
   <?php
+  include("../gotoTop.php");
   include("../nav.php");
   include("../menu.php");
   ?>
@@ -142,15 +138,6 @@ if($result_next->num_rows){
   
   <?php include("../footer.php"); ?>
 
-  <script>
-    $(function(){
-      var animaion = setInterval(update, 5);
-      function update(){
-        var y = $(this).scrollTop();
-        if(y>120)
-          $(".sidebar").css('top', y-120);
-      }
-    });
-  </script>
+  <script src="../../js/issue.js"></script>
 </body>
 </html>

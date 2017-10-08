@@ -1,12 +1,14 @@
 $(document).ready(function(){
   $('.close-btn, button.cancel').click(function(){
-    $('.update-account-form').animate({opacity: "0"}, 300, function(){
-      $(this).hide();
-    });
+    closeForm($(this));
   });
 
-  $('.update-account').click(function(){
-    $('.update-account-form').show().animate({opacity: "1"}, 300);
+  $('.grid-item').click(function(){
+    openForm($(this));
+  });
+  
+  $('.profile-photo').click(function(){
+    openForm($(".container"));
   });
 
   $('.open-change-password').click(function(){
@@ -22,3 +24,14 @@ $(document).ready(function(){
     }
   });
 });
+
+function closeForm(elem) {
+  elem.closest(".pop-up-form").animate({ opacity: "0" }, 300, function(){
+    $(this).hide();
+  });
+}
+
+function openForm(elem) {
+  console.log(elem.find(".pop-up-form"));
+  elem.find(".pop-up-form:first").show().animate({opacity: "1"}, 300);
+}
